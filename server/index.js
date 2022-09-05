@@ -9,12 +9,12 @@ import postRoutes from './routes/posts.js'
 //allows us to use different methods on the app instance
 const app = express()
 
-app.use('/posts', postRoutes)
-
 //we're setting up body parser to properly send requests
 app.use(bodyParser.json({ limit: '30mb', extended: true})) 
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true})) 
 app.use(cors())
+
+app.use('/posts', postRoutes)
 
 // https://www.mongobd.com/cloud/atlas
 //we will move this because they should be hidden
